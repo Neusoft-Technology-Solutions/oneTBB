@@ -19,7 +19,7 @@
 
 #if defined(__MINGW32__)
     #define _EXPORT __declspec(dllexport)
-#elif defined(_WIN32) || defined(__unix__) || defined(__APPLE__) // Use .def files for these
+#elif defined(_WIN32) || defined(__unix__) || defined(__APPLE__) || defined(__QNXNTO__) // Use .def files for these
     #define _EXPORT
 #else
     #error "Unknown platform/compiler"
