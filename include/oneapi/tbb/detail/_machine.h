@@ -28,7 +28,9 @@
 #ifdef _WIN32
 #include <intrin.h>
 #ifdef __TBBMALLOC_BUILD
-#define WIN32_LEAN_AND_MEAN
+#ifndef WIN32_LEAN_AND_MEAN
+ #define WIN32_LEAN_AND_MEAN
+#endif
 #ifndef NOMINMAX
 #define NOMINMAX
 #endif

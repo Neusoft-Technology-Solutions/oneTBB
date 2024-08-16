@@ -123,6 +123,11 @@ if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
 endif()
 
+if (MSVC)
+   add_compile_options(/wd4800)  # warning C4800: forcing value to bool 'true' or 'false' (performance warning)
+   add_compile_options(/wd4592)  # warning C4592: symbol will be dynamically initialized (implementation limitation)
+endif()
+
 # -------------------------------------------------------------------
 # Files and folders naming
 set(CMAKE_DEBUG_POSTFIX _debug)
@@ -297,3 +302,5 @@ endif()
 
 # Keep it the last instruction.
 add_subdirectory(cmake/post_install)
+
+set(ONETBB_FOUND  TRUE  PARENT_SCOPE)
